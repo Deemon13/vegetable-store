@@ -3,4 +3,33 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+
+  /* background-color: #f7f7f7; */
+}
+
+.header {
+  margin: 0 auto;
+  width: 100%;
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* max-width: 1440px; */
+  border-bottom: none;
+}
+
+.main {
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+
+.main-title {
+  margin-top: 0;
+  margin-bottom: 49px;
+
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+  font-family: sans-serif;
+  text-align: left;
 }
