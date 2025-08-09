@@ -33,3 +33,10 @@
   font-family: sans-serif;
   text-align: left;
 }
+
+.btn-increase-amount-cart > span,
+.btn-decrease-amount-cart > span,
+.btn-decrease-amount-list > span,
+.btn-increase-amount-list > span {
+  pointer-events: none;
+}
