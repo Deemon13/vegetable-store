@@ -1,5 +1,7 @@
 import { Card, Image, Text, Button, Group } from "@mantine/core";
 
+import { IconShoppingCart } from "@tabler/icons-react";
+
 interface VegetableTypeCard {
   id: number;
   name: string;
@@ -7,8 +9,8 @@ interface VegetableTypeCard {
   image: string;
   category: string;
   amount: number;
-  increaseAmount: React.MouseEventHandler<HTMLDivElement>;
-  decreaseAmount: React.MouseEventHandler<HTMLDivElement>;
+  increaseAmount: React.MouseEventHandler<HTMLButtonElement>;
+  decreaseAmount: React.MouseEventHandler<HTMLButtonElement>;
   addToCart: React.MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -67,12 +69,14 @@ export const VegetableCard = ({
 
         <Button
           id={String(id)}
-          color="blue"
+          variant="light"
+          color="#3B944E"
           mt="md"
           radius="md"
           onClick={addToCart}
         >
           Add to cart
+          <IconShoppingCart size={20} />
         </Button>
       </Group>
     </Card>

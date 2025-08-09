@@ -5,12 +5,35 @@ import "@mantine/core/styles.css";
 import { useEffect, useState, type MouseEvent } from "react";
 import {
   MantineProvider,
+  createTheme,
+  type MantineColorsTuple,
   AppShell,
   SimpleGrid,
   Popover,
   Button,
   Stack,
 } from "@mantine/core";
+
+import { IconShoppingCart } from "@tabler/icons-react";
+
+const myColor: MantineColorsTuple = [
+  "#eafbee",
+  "#dbf2e0",
+  "#b9e1c2",
+  "#94d0a1",
+  "#74c186",
+  "#60b874",
+  "#54b46a",
+  "#449e59",
+  "#398d4d",
+  "#2a7a3f",
+];
+
+const theme = createTheme({
+  colors: {
+    myColor,
+  },
+});
 
 import "./App.css";
 
@@ -47,7 +70,9 @@ export const App = () => {
 
   // console.log(vegetables);
 
-  function handleIncreaseAmount(evt: MouseEvent<HTMLDivElement>) {
+  function handleIncreaseAmount(
+    evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) {
     const vegetablesWithIncreaseAmount = vegetables.map((item) => {
       if (item.id !== Number(evt.target.offsetParent.id)) {
         return item;
@@ -60,7 +85,9 @@ export const App = () => {
     setVegetables([...vegetablesWithIncreaseAmount]);
   }
 
-  function handleIncreaseAmountCart(evt: MouseEvent<HTMLDivElement>) {
+  function handleIncreaseAmountCart(
+    evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) {
     if (evt.target.nodeName !== "BUTTON") {
       return;
     }
@@ -78,7 +105,9 @@ export const App = () => {
     setCart([...vegetablesWithIncreaseAmount]);
   }
 
-  function handleDecreaseAmount(evt: MouseEvent<HTMLDivElement>) {
+  function handleDecreaseAmount(
+    evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) {
     // console.dir(evt.target.parentNode);
     // console.log(evt.target.parentNode);
     // console.log(evt.target.offsetParent);
@@ -96,7 +125,9 @@ export const App = () => {
     setVegetables([...vegetablesWithIncreaseAmount]);
   }
 
-  function handleDecreaseAmountCart(evt: MouseEvent<HTMLDivElement>) {
+  function handleDecreaseAmountCart(
+    evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+  ) {
     if (evt.target.nodeName !== "BUTTON") {
       return;
     }
@@ -187,7 +218,7 @@ export const App = () => {
   // console.log("totalState:", total);
 
   return (
-    <MantineProvider>
+    <MantineProvider theme={theme}>
       <AppShell header={{ height: 60 }}>
         <AppShell.Header className="header">
           <div>
@@ -195,9 +226,9 @@ export const App = () => {
           </div>
           <Popover width={444} position="bottom-end" offset={20}>
             <Popover.Target>
-              <Button>
-                {cart.length > 0 && <span>{cart.length}</span>}{" "}
-                <span>Total:{total} $</span> Cart
+              <Button variant="filled" color="#54b46a">
+                {cart.length > 0 && <span>{cart.length}</span>} Cart{" "}
+                <IconShoppingCart size={20} />
               </Button>
             </Popover.Target>
             <Popover.Dropdown>
