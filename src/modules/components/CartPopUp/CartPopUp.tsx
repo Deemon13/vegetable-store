@@ -3,6 +3,8 @@ import "@mantine/core/styles.css";
 import { useEffect, type MouseEvent } from "react";
 import { Popover, Button, Stack } from "@mantine/core";
 
+import { EmptyCart } from "../../UI";
+
 import { transformNameOfVegetable } from "../../../modules/utils";
 
 // import styles from "./CartPopUp.module.css";
@@ -128,7 +130,7 @@ export const CartPopUp = ({
           })}
         </Stack>
       ) : (
-        <div>cart is empty!</div>
+        <EmptyCart />
       )}
       {total > 0 && <div>Total price: {total} $</div>}
     </Popover.Dropdown>
