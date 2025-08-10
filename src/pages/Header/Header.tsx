@@ -5,7 +5,11 @@ import { Popover, Button, Stack } from "@mantine/core";
 
 import { IconShoppingCart } from "@tabler/icons-react";
 
+import { Logo } from "../../modules/UI";
+
 import { transformNameOfVegetable } from "../../modules/utils";
+
+import styles from "./Header.module.css";
 
 interface HeaderProps {
   cart: {
@@ -85,14 +89,19 @@ export const Header = ({ cart, setCart, total, setTotal }: HeaderProps) => {
 
   return (
     <>
-      <div>
-        Vegetable <span>SHOP</span>
-      </div>
+      <Logo />
       <Popover width={444} position="bottom-end" offset={20}>
         <Popover.Target>
-          <Button variant="filled" color="#54b46a">
-            {cart.length > 0 && <span>{cart.length}</span>} Cart{" "}
-            <IconShoppingCart size={20} />
+          <Button
+            variant="filled"
+            color="#54b46a"
+            rightSection={<IconShoppingCart size={20} />}
+            className={styles["btn-cart"]}
+          >
+            {cart.length > 0 && (
+              <span className={styles["veg-amount"]}>{cart.length}</span>
+            )}
+            Cart
           </Button>
         </Popover.Target>
         <Popover.Dropdown>

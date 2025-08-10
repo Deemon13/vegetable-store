@@ -1,0 +1,31 @@
+.logo-bg {
+  padding: 6px 0 6px 12px;
+  border-radius: 31px;
+
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 0;
+  font-weight: 600;
+  background-color: #f7f7f7;
+}
+
+.logo-bg:hover {
+  cursor: pointer;
+}
+
+.logo-bg:hover .logo__last-word {
+  background-color: rgba(76, 162, 95, 1);
+}
+
+.logo__first-word {
+  margin-right: 8px;
+}
+
+.logo__last-word {
+  padding: 3px 12px;
+  border-radius: 31px;
+  text-transform: uppercase;
+
+  background-color: #54b46a;
+  color: #ffffff;
+}
