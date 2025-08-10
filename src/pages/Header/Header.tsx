@@ -32,7 +32,7 @@ export const Header = ({ cart, setCart, total, setTotal }: HeaderProps) => {
   return (
     <>
       <Logo />
-      <Popover width={444} position="bottom-end" offset={20}>
+      <Popover position="bottom-end" offset={20}>
         <CartButton cart={cart} />
         <CartPopUp
           cart={cart}

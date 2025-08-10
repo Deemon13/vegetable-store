@@ -3,11 +3,11 @@ import "@mantine/core/styles.css";
 import { useEffect, type MouseEvent } from "react";
 import { Popover, Button, Stack } from "@mantine/core";
 
-import { EmptyCart } from "../../UI";
+import { EmptyCart, CartPopupTotal } from "../../UI";
 
 import { transformNameOfVegetable } from "../../../modules/utils";
 
-// import styles from "./CartPopUp.module.css";
+import styles from "./CartPopUp.module.css";
 
 interface CartPopUpProps {
   cart: {
@@ -90,13 +90,13 @@ export const CartPopUp = ({
     setCart([...vegetablesWithIncreaseAmount]);
   }
   return (
-    <Popover.Dropdown>
+    <Popover.Dropdown className={styles.popup}>
       {cart.length > 0 ? (
         <Stack
           h={300}
           bg="var(--mantine-color-body)"
           align="stretch"
-          justify="center"
+          justify="top"
           gap="md"
         >
           {cart.map((item) => {
@@ -132,7 +132,7 @@ export const CartPopUp = ({
       ) : (
         <EmptyCart />
       )}
-      {total > 0 && <div>Total price: {total} $</div>}
+      {total > 0 && <CartPopupTotal total={total} />}
     </Popover.Dropdown>
   );
 };
