@@ -9,12 +9,7 @@ import {
   type MantineColorsTuple,
   AppShell,
   SimpleGrid,
-  // Popover,
-  // Button,
-  // Stack,
 } from "@mantine/core";
-
-// import { IconShoppingCart } from "@tabler/icons-react";
 
 const myColor: MantineColorsTuple = [
   "#eafbee",
@@ -37,8 +32,8 @@ const theme = createTheme({
 
 import "./App.css";
 
-import { VegetableCard } from "../../modules/components/VegetableCard/VegetableCard";
-import { Header } from "../../pages/Header/Header";
+import { VegetableCard } from "../../modules/components";
+import { Header } from "../../pages";
 
 const url =
   "https://res.cloudinary.com/sivadass/raw/upload/v1535817394/json/products.json";
@@ -69,8 +64,6 @@ export const App = () => {
     getVegetables();
   }, []);
 
-  // console.log(vegetables);
-
   function handleIncreaseAmount(
     evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) {
@@ -86,33 +79,9 @@ export const App = () => {
     setVegetables([...vegetablesWithIncreaseAmount]);
   }
 
-  // function handleIncreaseAmountCart(
-  //   evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-  // ) {
-  //   if ((evt.target as Element).nodeName !== "BUTTON") {
-  //     return;
-  //   }
-  //   // console.dir(evt.target);
-
-  //   const vegetablesWithIncreaseAmount = cart.map((item) => {
-  //     if (item.id !== Number((evt.target as Element).parentElement?.id)) {
-  //       return item;
-  //     } else {
-  //       item.amount += 1;
-  //       return item;
-  //     }
-  //   });
-
-  //   setCart([...vegetablesWithIncreaseAmount]);
-  // }
-
   function handleDecreaseAmount(
     evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) {
-    // console.dir(evt.target.parentNode);
-    // console.log(evt.target.parentNode);
-    // console.log(evt.target.offsetParent);
-
     const vegetablesWithIncreaseAmount = vegetables.map((item) => {
       if (item.id !== Number((evt.target as HTMLElement).offsetParent?.id)) {
         return item;
@@ -126,37 +95,9 @@ export const App = () => {
     setVegetables([...vegetablesWithIncreaseAmount]);
   }
 
-  // function handleDecreaseAmountCart(
-  //   evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-  // ) {
-  //   if ((evt.target as Element).nodeName !== "BUTTON") {
-  //     return;
-  //   }
-  //   // console.log("decreasing cart");
-  //   // console.dir(evt.target);
-  //   // console.dir(evt.target.parentNode);
-  //   // console.dir(evt.target.offsetParent);
-
-  //   const vegetablesWithIncreaseAmount = cart.map((item) => {
-  //     if (item.id !== Number((evt.target as Element).parentElement?.id)) {
-  //       return item;
-  //     } else {
-  //       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-  //       item.amount <= 0 ? (item.amount = 0) : (item.amount -= 1);
-  //       return item;
-  //     }
-  //   });
-
-  //   setCart([...vegetablesWithIncreaseAmount]);
-  // }
-
   function handleAddToCart(
     evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) {
-    // console.dir(evt.target.parentNode);
-    // console.log(evt.target.parentNode);
-    // console.log(evt.target.offsetParent);
-
     let newCart = [];
 
     const vegetableToCartId = Number(
@@ -199,28 +140,6 @@ export const App = () => {
     setVegetables([...vegetablesWithAmount]);
   }
 
-  // useEffect(() => {
-  //   createTotalCart();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [cart]);
-
-  // function createTotalCart() {
-  //   const totalValueOfVegetables = cart.reduce((acc, item) => {
-  //     return acc + item.price * item.amount;
-  //   }, 0);
-
-  //   // console.log("total:", totalValueOfVegetables);
-  //   setTotal(totalValueOfVegetables);
-  // }
-
-  // function transformNameOfVegetable(name: string) {
-  //   const arrOfName = name.split(" - ");
-  //   return { name: arrOfName[0], weight: arrOfName[1] };
-  // }
-
-  // console.log("cart:", cart);
-  // console.log("totalState:", total);
-
   return (
     <MantineProvider theme={theme}>
       <AppShell header={{ height: 60 }}>
@@ -231,62 +150,6 @@ export const App = () => {
             total={total}
             setTotal={setTotal}
           />
-          {/* <div>
-            Vegetable <span>SHOP</span>
-          </div>
-          <Popover width={444} position="bottom-end" offset={20}>
-            <Popover.Target>
-              <Button variant="filled" color="#54b46a">
-                {cart.length > 0 && <span>{cart.length}</span>} Cart{" "}
-                <IconShoppingCart size={20} />
-              </Button>
-            </Popover.Target>
-            <Popover.Dropdown>
-              <Stack
-                h={300}
-                bg="var(--mantine-color-body)"
-                align="stretch"
-                justify="center"
-                gap="md"
-              >
-                {cart.length > 0 ? (
-                  cart.map((item) => {
-                    return (
-                      <div key={item.id} id={String(item.id)}>
-                        {transformNameOfVegetable(item.name).name}{" "}
-                        {transformNameOfVegetable(item.name).weight} -{" "}
-                        {item.price} $,{" "}
-                        <Button
-                          variant="filled"
-                          color="gray"
-                          size="xs"
-                          radius="md"
-                          onClick={handleDecreaseAmountCart}
-                          className="btn-decrease-amount-cart"
-                        >
-                          -
-                        </Button>
-                        {item.amount}
-                        <Button
-                          variant="filled"
-                          color="gray"
-                          size="xs"
-                          radius="md"
-                          onClick={handleIncreaseAmountCart}
-                          className="btn-increase-amount-cart"
-                        >
-                          +
-                        </Button>
-                      </div>
-                    );
-                  })
-                ) : (
-                  <div>cart is empty!</div>
-                )}
-                {total > 0 && <div>Total price: {total} $</div>}
-              </Stack>
-            </Popover.Dropdown>
-          </Popover> */}
         </AppShell.Header>
         <AppShell.Main className="main">
           <h1 className="main-title">Catalog</h1>

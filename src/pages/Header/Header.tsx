@@ -1,37 +1,11 @@
 import "@mantine/core/styles.css";
 
 import { useEffect, type MouseEvent } from "react";
-import {
-  //   MantineProvider,
-  //   createTheme,
-  //   type MantineColorsTuple,
-  //   AppShell,
-  //   SimpleGrid,
-  Popover,
-  Button,
-  Stack,
-} from "@mantine/core";
+import { Popover, Button, Stack } from "@mantine/core";
 
 import { IconShoppingCart } from "@tabler/icons-react";
 
-// const myColor: MantineColorsTuple = [
-//   "#eafbee",
-//   "#dbf2e0",
-//   "#b9e1c2",
-//   "#94d0a1",
-//   "#74c186",
-//   "#60b874",
-//   "#54b46a",
-//   "#449e59",
-//   "#398d4d",
-//   "#2a7a3f",
-// ];
-
-// const theme = createTheme({
-//   colors: {
-//     myColor,
-//   },
-// });
+import { transformNameOfVegetable } from "../../modules/utils";
 
 interface HeaderProps {
   cart: {
@@ -57,8 +31,6 @@ interface HeaderProps {
 }
 
 export const Header = ({ cart, setCart, total, setTotal }: HeaderProps) => {
-  //   console.log(cart);
-
   useEffect(() => {
     createTotalCart();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -69,7 +41,6 @@ export const Header = ({ cart, setCart, total, setTotal }: HeaderProps) => {
       return acc + item.price * item.amount;
     }, 0);
 
-    // console.log("total:", totalValueOfVegetables);
     setTotal(totalValueOfVegetables);
   }
 
@@ -79,7 +50,6 @@ export const Header = ({ cart, setCart, total, setTotal }: HeaderProps) => {
     if ((evt.target as Element).nodeName !== "BUTTON") {
       return;
     }
-    // console.dir(evt.target);
 
     const vegetablesWithIncreaseAmount = cart.map((item) => {
       if (item.id !== Number((evt.target as Element).parentElement?.id)) {
@@ -99,10 +69,6 @@ export const Header = ({ cart, setCart, total, setTotal }: HeaderProps) => {
     if ((evt.target as Element).nodeName !== "BUTTON") {
       return;
     }
-    // console.log("decreasing cart");
-    // console.dir(evt.target);
-    // console.dir(evt.target.parentNode);
-    // console.dir(evt.target.offsetParent);
 
     const vegetablesWithIncreaseAmount = cart.map((item) => {
       if (item.id !== Number((evt.target as Element).parentElement?.id)) {
@@ -115,11 +81,6 @@ export const Header = ({ cart, setCart, total, setTotal }: HeaderProps) => {
     });
 
     setCart([...vegetablesWithIncreaseAmount]);
-  }
-
-  function transformNameOfVegetable(name: string) {
-    const arrOfName = name.split(" - ");
-    return { name: arrOfName[0], weight: arrOfName[1] };
   }
 
   return (
