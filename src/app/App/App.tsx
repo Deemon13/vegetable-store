@@ -74,7 +74,7 @@ export const App = () => {
     evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) {
     const vegetablesWithIncreaseAmount = vegetables.map((item) => {
-      if (item.id !== Number(evt.target.offsetParent.id)) {
+      if (item.id !== Number((evt.target as HTMLElement).offsetParent?.id)) {
         return item;
       } else {
         item.amount += 1;
@@ -88,13 +88,13 @@ export const App = () => {
   function handleIncreaseAmountCart(
     evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) {
-    if (evt.target.nodeName !== "BUTTON") {
+    if ((evt.target as Element).nodeName !== "BUTTON") {
       return;
     }
-    // console.log("increasing cart");
+    // console.dir(evt.target);
 
     const vegetablesWithIncreaseAmount = cart.map((item) => {
-      if (item.id !== Number(evt.target.parentNode.id)) {
+      if (item.id !== Number((evt.target as Element).parentElement?.id)) {
         return item;
       } else {
         item.amount += 1;
@@ -113,7 +113,7 @@ export const App = () => {
     // console.log(evt.target.offsetParent);
 
     const vegetablesWithIncreaseAmount = vegetables.map((item) => {
-      if (item.id !== Number(evt.target.offsetParent.id)) {
+      if (item.id !== Number((evt.target as HTMLElement).offsetParent?.id)) {
         return item;
       } else {
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -128,7 +128,7 @@ export const App = () => {
   function handleDecreaseAmountCart(
     evt: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) {
-    if (evt.target.nodeName !== "BUTTON") {
+    if ((evt.target as Element).nodeName !== "BUTTON") {
       return;
     }
     // console.log("decreasing cart");
@@ -137,7 +137,7 @@ export const App = () => {
     // console.dir(evt.target.offsetParent);
 
     const vegetablesWithIncreaseAmount = cart.map((item) => {
-      if (item.id !== Number(evt.target.parentNode.id)) {
+      if (item.id !== Number((evt.target as Element).parentElement?.id)) {
         return item;
       } else {
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -158,7 +158,9 @@ export const App = () => {
 
     let newCart = [];
 
-    const vegetableToCartId = Number(evt.target.offsetParent.id);
+    const vegetableToCartId = Number(
+      (evt.target as HTMLElement).offsetParent?.id
+    );
 
     const vegetableToCart: VegetableType | undefined = vegetables.find(
       (item) => item.id === vegetableToCartId
