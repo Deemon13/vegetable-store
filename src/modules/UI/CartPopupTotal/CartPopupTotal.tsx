@@ -1,8 +1,8 @@
 import styles from "./CartPopupTotal.module.css";
 
-type CartPopupTotalProps = {
+interface CartPopupTotalProps {
   total: number;
-};
+}
 
 export const CartPopupTotal = ({ total }: CartPopupTotalProps) => {
   return (

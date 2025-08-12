@@ -11,6 +11,12 @@ import {
   SimpleGrid,
 } from "@mantine/core";
 
+import "./App.css";
+
+import { Header } from "../../pages";
+import { VegetableCard } from "../../modules/components";
+import { CatalogTitle } from "../../modules/UI";
+
 const myColor: MantineColorsTuple = [
   "#eafbee",
   "#dbf2e0",
@@ -29,11 +35,6 @@ const theme = createTheme({
     myColor,
   },
 });
-
-import "./App.css";
-
-import { VegetableCard } from "../../modules/components";
-import { Header } from "../../pages";
 
 const url =
   "https://res.cloudinary.com/sivadass/raw/upload/v1535817394/json/products.json";
@@ -152,7 +153,7 @@ export const App = () => {
           />
         </AppShell.Header>
         <AppShell.Main className="main">
-          <h1 className="main-title">Catalog</h1>
+          <CatalogTitle title="Catalog" />
 
           <SimpleGrid
             cols={{ base: 1, sm: 2, lg: 4 }}
