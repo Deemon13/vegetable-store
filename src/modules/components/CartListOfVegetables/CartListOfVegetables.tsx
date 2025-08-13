@@ -4,6 +4,8 @@ import { Stack } from "@mantine/core";
 
 import { CartVegetableCard } from "../../components";
 
+import styles from "./CartListOfVegetables.module.css";
+
 interface CartListOfVegetablesProps {
   cart: {
     id: number;
@@ -36,6 +38,7 @@ export const CartListOfVegetables = ({
       align="stretch"
       justify="top"
       gap="md"
+      className={styles["cart-list-vegetables"]}
     >
       {cart.map((item) => {
         return (

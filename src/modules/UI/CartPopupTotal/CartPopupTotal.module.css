@@ -1,9 +1,12 @@
 .total {
   display: flex;
   justify-content: space-between;
+  padding-top: 12px;
 
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
   letter-spacing: 0;
+
+  border-top: 1px solid #dee2e6;
 }

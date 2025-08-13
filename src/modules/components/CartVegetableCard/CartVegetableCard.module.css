@@ -1,0 +1,58 @@
+.cart-vegetable-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.cart-vegetable-card:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.cart-vegetable-card-data {
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 77%;
+}
+
+.cart-vegetable-card-data {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.cart-vegetable-card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+}
+
+.cart-vegetable-card-info > img {
+  display: block;
+  margin-right: 12px;
+}
+
+.cart-vegetable-card-actions {
+  align-self: self-end;
+}
+
+.btn-increase-amount-cart,
+.btn-decrease-amount-cart {
+  width: 30px;
+  padding: 0;
+
+  color: rgba(222, 226, 230, 1);
+}
+
+.btn-increase-amount-cart > span,
+.btn-decrease-amount-cart > span {
+  pointer-events: none;
+
+  font-size: 18px;
+
+  color: rgba(33, 37, 41, 1);
+}
+
+.cart-vegetable-amount {
+  margin-right: 9px;
+  margin-left: 9px;
+}

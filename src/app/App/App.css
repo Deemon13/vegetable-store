@@ -19,8 +19,3 @@
   padding-top: 60px;
   padding-bottom: 120px;
 }
-
-.btn-increase-amount-cart > span,
-.btn-decrease-amount-cart > span {
-  pointer-events: none;
-}
