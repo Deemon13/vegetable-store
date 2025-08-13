@@ -2,6 +2,8 @@ import { Card, Image, Text, Button, Group } from "@mantine/core";
 
 import { IconShoppingCart } from "@tabler/icons-react";
 
+import { transformNameOfVegetable } from "../../utils";
+
 interface VegetableTypeCard {
   id: number;
   name: string;
@@ -24,10 +26,6 @@ export const VegetableCard = ({
   decreaseAmount,
   addToCart,
 }: VegetableTypeCard) => {
-  function transformNameOfVegetable(name: string) {
-    const arrOfName = name.split(" - ");
-    return { name: arrOfName[0], weight: arrOfName[1] };
-  }
   return (
     <Card id={String(id)} shadow="sm" padding="md" radius="md" withBorder>
       <Card.Section>
@@ -36,8 +34,8 @@ export const VegetableCard = ({
 
       <Group justify="space-between" mt="md" mb="xs">
         <Text fw={500}>
-          {transformNameOfVegetable(name).name}{" "}
-          {transformNameOfVegetable(name).weight}
+          {transformNameOfVegetable(name, "-").name}{" "}
+          {transformNameOfVegetable(name, "-").weight}
         </Text>
         <Button
           variant="filled"

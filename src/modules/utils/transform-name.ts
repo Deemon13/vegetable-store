@@ -1,4 +1,4 @@
-export function transformNameOfVegetable(name: string) {
-  const arrOfName = name.split(" - ");
-  return { name: arrOfName[0], weight: arrOfName[1] };
+export function transformNameOfVegetable(name: string, splitter: string) {
+  const arrOfName = name.split(splitter);
+  return { name: arrOfName[0]?.trim(), weight: arrOfName[1]?.trim() };
 }

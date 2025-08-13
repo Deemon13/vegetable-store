@@ -79,8 +79,8 @@ export const CartVegetableCard = ({
   return (
     <div id={String(item.id)}>
       <img src={item.image} width="64" height="64" />
-      {transformNameOfVegetable(item.name).name}{" "}
-      {transformNameOfVegetable(item.name).weight} - {item.price} $,{" "}
+      {transformNameOfVegetable(item.name, "-").name}{" "}
+      {transformNameOfVegetable(item.name, "-").weight} - {item.price} $,{" "}
       <Button
         variant="filled"
         color="gray"
