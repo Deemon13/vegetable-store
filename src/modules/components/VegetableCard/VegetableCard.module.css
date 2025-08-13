@@ -1,0 +1,81 @@
+.vegetable-data {
+  margin-bottom: 16px !important;
+}
+
+.vegetable-name {
+  margin-right: 12px;
+
+  font-size: 18px;
+  line-height: 155%;
+  letter-spacing: 0;
+  font-weight: 600;
+
+  color: rgba(33, 37, 41, 1);
+}
+
+.vegetable-weight {
+  text-transform: lowercase;
+
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  font-weight: 600;
+
+  color: rgba(134, 142, 150, 1);
+}
+
+.btn-decrease-amount-list,
+.btn-increase-amount-list {
+  width: 30px;
+  padding: 0;
+
+  color: rgba(222, 226, 230, 1);
+}
+
+.btn-decrease-amount-list > span,
+.btn-increase-amount-list > span {
+  pointer-events: none;
+
+  font-size: 18px;
+
+  color: rgba(33, 37, 41, 1);
+  /* z-index: 999; */
+}
+
+.vegetable-amount {
+  margin-right: 9px;
+  margin-left: 9px;
+
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  font-weight: 400;
+
+  color: rgba(33, 37, 41, 1);
+}
+
+.vegetable-adding-cart {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  align-items: center;
+}
+
+.vegetable-price {
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0;
+  font-weight: 600;
+
+  color: rgba(33, 37, 41, 1);
+}
+
+.btn-add-cart {
+  margin-top: 0 !important;
+  padding: 8px 44px;
+
+  background-color: rgba(231, 250, 235, 1);
+}
+
+.btn-add-cart img {
+  margin-left: 12px;
+}

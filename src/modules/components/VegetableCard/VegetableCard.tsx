@@ -1,8 +1,12 @@
 import { Card, Image, Text, Button, Group } from "@mantine/core";
 
-import { IconShoppingCart } from "@tabler/icons-react";
-
 import { transformNameOfVegetable } from "../../utils";
+
+import IconDecrease from "../../../assets/Rectangle 70.png";
+import IconIncrease from "../../../assets/Union.png";
+import IconCart from "../../../assets/cart.png";
+
+import styles from "./VegetableCard.module.css";
 
 interface VegetableTypeCard {
   id: number;
@@ -27,42 +31,58 @@ export const VegetableCard = ({
   addToCart,
 }: VegetableTypeCard) => {
   return (
-    <Card id={String(id)} shadow="sm" padding="md" radius="md" withBorder>
+    <Card id={String(id)} shadow="sm" padding="md" radius="lg" withBorder>
       <Card.Section>
         <Image src={image} width={276} height={276} alt={name} />
       </Card.Section>
 
-      <Group justify="space-between" mt="md" mb="xs">
+      <Group
+        justify="space-between"
+        mt="md"
+        mb="xs"
+        className={styles["vegetable-data"]}
+      >
         <Text fw={500}>
-          {transformNameOfVegetable(name, "-").name}{" "}
-          {transformNameOfVegetable(name, "-").weight}
+          <span className={styles["vegetable-name"]}>
+            {transformNameOfVegetable(name, "-").name}
+          </span>
+          <span className={styles["vegetable-weight"]}>
+            {transformNameOfVegetable(name, "-").weight}
+          </span>
         </Text>
-        <Button
-          variant="filled"
-          color="gray"
-          size="xs"
-          radius="md"
-          onClick={decreaseAmount}
-          className="btn-decrease-amount-list"
-        >
-          -
-        </Button>
-        <span>{amount}</span>
-        <Button
-          variant="filled"
-          color="gray"
-          size="xs"
-          radius="md"
-          onClick={increaseAmount}
-          className="btn-increase-amount-list"
-        >
-          +
-        </Button>
+        <div>
+          <Button
+            variant="filled"
+            color="gray"
+            size="xs"
+            radius="md"
+            onClick={decreaseAmount}
+            className={styles["btn-decrease-amount-list"]}
+          >
+            <img src={IconDecrease} width={10} />
+          </Button>
+          <span className={styles["vegetable-amount"]}>{amount}</span>
+          <Button
+            variant="filled"
+            color="gray"
+            size="xs"
+            radius="md"
+            onClick={increaseAmount}
+            className={styles["btn-increase-amount-list"]}
+          >
+            <img src={IconIncrease} width={10} />
+          </Button>
+        </div>
       </Group>
 
-      <Group justify="space-between" mt="md" mb="xs">
+      <Group
+        justify="space-between"
+        mt="md"
+        mb="xs"
+        className={styles["vegetable-adding-cart"]}
+      >
         <Text size="sm" c="dimmed">
-          $ {price}
+          <span className={styles["vegetable-price"]}>$ {price}</span>
         </Text>
 
         <Button
@@ -72,9 +92,11 @@ export const VegetableCard = ({
           mt="md"
           radius="md"
           onClick={addToCart}
+          className={styles["btn-add-cart"]}
+          // rightSection={<IconShoppingCart size={20} />}
         >
           Add to cart
-          <IconShoppingCart size={20} />
+          <img src={IconCart} width={20} />
         </Button>
       </Group>
     </Card>

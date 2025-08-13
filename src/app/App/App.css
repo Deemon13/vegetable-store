@@ -21,8 +21,6 @@
 }
 
 .btn-increase-amount-cart > span,
-.btn-decrease-amount-cart > span,
-.btn-decrease-amount-list > span,
-.btn-increase-amount-list > span {
+.btn-decrease-amount-cart > span {
   pointer-events: none;
 }
