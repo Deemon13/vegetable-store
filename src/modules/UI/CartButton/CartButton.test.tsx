@@ -1,9 +1,10 @@
-import { render, screen } from "@testing-library/react";
-import { MantineProvider, Popover } from "@mantine/core";
+import { screen } from "@testing-library/react";
+import { Popover } from "@mantine/core";
 import { expect, it, describe } from "vitest";
 import ky from "ky";
 
 import { CartButton } from "./CartButton";
+import { render } from "../../test-utils/render";
 
 const url =
   "https://res.cloudinary.com/sivadass/raw/upload/v1535817394/json/products.json";
@@ -17,25 +18,25 @@ interface VegetableType {
   amount: number;
 }
 
-describe("CartButton component", function () {
-  it("should render component CartButton", async () => {
-    const getVegetables = async () => {
-      const newVegetables: VegetableType[] = await ky.get(url).json();
-      const newVegetablesWithAmount = newVegetables.map((itm) => {
-        return { ...itm, amount: 1 };
-      });
+describe("CartButton component", async function () {
+  const getVegetables = async () => {
+    const newVegetables: VegetableType[] = await ky.get(url).json();
+    const newVegetablesWithAmount = newVegetables.map((itm) => {
+      return { ...itm, amount: 1 };
+    });
 
-      return newVegetablesWithAmount;
-    };
+    return newVegetablesWithAmount;
+  };
 
-    const cart: VegetableType[] = await getVegetables();
+  const cart: VegetableType[] = await getVegetables();
 
+  it("should render component CartButton", () => {
     render(
-      <MantineProvider>
-        <Popover>
-          <CartButton cart={cart} />
-        </Popover>
-      </MantineProvider>
+      // <MantineProvider env="test">
+      <Popover>
+        <CartButton cart={cart} />
+      </Popover>
+      // </MantineProvider>
     );
     expect(screen.getByText(`${cart.length}`));
   });
