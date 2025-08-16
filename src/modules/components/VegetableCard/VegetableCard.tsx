@@ -99,7 +99,6 @@ export const VegetableCard = ({
           radius="md"
           onClick={addToCart}
           className={styles["btn-add-cart"]}
-          // rightSection={<IconShoppingCart size={20} />}
         >
           Add to cart
           <img src={IconCart} width={20} />

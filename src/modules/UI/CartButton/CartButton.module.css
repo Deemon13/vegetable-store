@@ -12,6 +12,10 @@
   letter-spacing: 0;
 }
 
+.btn-cart-icon {
+  margin-left: 10px;
+}
+
 .veg-amount {
   display: flex;
   justify-content: center;
