@@ -32,11 +32,9 @@ describe("CartButton component", async function () {
 
   it("should render component CartButton", () => {
     render(
-      // <MantineProvider env="test">
       <Popover>
         <CartButton cart={cart} />
       </Popover>
-      // </MantineProvider>
     );
     expect(screen.getByText(`${cart.length}`));
   });
