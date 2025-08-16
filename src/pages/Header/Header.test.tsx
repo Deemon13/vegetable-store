@@ -19,7 +19,7 @@ interface VegetableType {
   amount: number;
 }
 
-describe("CartButton component", async function () {
+describe("Header component", async function () {
   const mochSetCart = vi.fn();
   const mochSetTotal = vi.fn();
 
@@ -39,7 +39,7 @@ describe("CartButton component", async function () {
   const cart: VegetableType[] = await getVegetables();
   const total = 42;
 
-  it("should render component CartButton", () => {
+  it("should render component Header", () => {
     render(
       <>
         <Logo />

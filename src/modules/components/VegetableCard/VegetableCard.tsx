@@ -101,7 +101,7 @@ export const VegetableCard = ({
           className={styles["btn-add-cart"]}
         >
           Add to cart
-          <img src={IconCart} width={20} />
+          <img src={IconCart} width={20} alt="btn-cart-icon" />
         </Button>
       </Group>
     </Card>
