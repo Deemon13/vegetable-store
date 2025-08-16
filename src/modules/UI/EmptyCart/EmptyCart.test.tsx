@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { EmptyCart } from "./EmptyCart";
 import { expect, it, describe } from "vitest";
+
+import { EmptyCart } from "./EmptyCart";
 
 describe("EmptyCart component", function () {
   it("should render component EmptyCart", () => {

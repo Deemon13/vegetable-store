@@ -1,4 +1,5 @@
 import { expect, it, describe } from "vitest";
+
 import { transformNameOfVegetable } from "./transform-name";
 
 describe("transformNameOfVegetable should return object of transformed names", function () {

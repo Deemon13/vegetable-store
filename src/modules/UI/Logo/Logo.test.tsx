@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { Logo } from "./Logo";
 import { expect, it, describe } from "vitest";
+
+import { Logo } from "./Logo";
 
 describe("Logo component", function () {
   it("should render Logo", () => {
