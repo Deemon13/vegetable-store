@@ -10,7 +10,7 @@ interface VegetablesListProps {
     id: number;
     name: string;
     price: number;
-    image: string;
+    image?: string;
     category?: string;
     amount: number;
   }[];
@@ -19,7 +19,7 @@ interface VegetablesListProps {
       id: number;
       name: string;
       price: number;
-      image: string;
+      image?: string;
       category?: string;
       amount: number;
     }[]
@@ -28,7 +28,7 @@ interface VegetablesListProps {
     id: number;
     name: string;
     price: number;
-    image: string;
+    image?: string;
     category?: string;
     amount: number;
   }[];
@@ -37,7 +37,7 @@ interface VegetablesListProps {
       id: number;
       name: string;
       price: number;
-      image: string;
+      image?: string;
       category?: string;
       amount: number;
     }[]
@@ -48,7 +48,7 @@ interface VegetableType {
   id: number;
   name: string;
   price: number;
-  image: string;
+  image?: string;
   category?: string;
   amount: number;
 }

@@ -13,7 +13,7 @@ import {
 import "./App.css";
 
 import { Header, VegetablesList } from "../../pages";
-import { CatalogTitle } from "../../modules/UI";
+import { CatalogTitle, Loader } from "../../modules/UI";
 
 const myColor: MantineColorsTuple = [
   "#eafbee",
@@ -76,13 +76,16 @@ export const App = () => {
         </AppShell.Header>
         <AppShell.Main className="main">
           <CatalogTitle title="Catalog" />
-
-          <VegetablesList
-            vegetables={vegetables}
-            setVegetables={setVegetables}
-            cart={cart}
-            setCart={setCart}
-          />
+          {vegetables.length ? (
+            <VegetablesList
+              vegetables={vegetables}
+              setVegetables={setVegetables}
+              cart={cart}
+              setCart={setCart}
+            />
+          ) : (
+            <Loader />
+          )}
         </AppShell.Main>
       </AppShell>
     </MantineProvider>

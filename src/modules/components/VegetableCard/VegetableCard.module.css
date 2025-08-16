@@ -1,3 +1,16 @@
+.vegetable-img-wrapper {
+  padding-top: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.vegetable-img {
+  background-color: #f3f5fa;
+  background-image: url("../../../assets/img-loader.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .vegetable-data {
   margin-bottom: 16px !important;
 }

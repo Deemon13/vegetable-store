@@ -5,6 +5,7 @@ import { transformNameOfVegetable } from "../../utils";
 import IconDecrease from "../../../assets/Rectangle 70.png";
 import IconIncrease from "../../../assets/Union.png";
 import IconCart from "../../../assets/cart.png";
+import LoaderImg from "../../../assets/img-loader.png";
 
 import styles from "./VegetableCard.module.css";
 
@@ -12,7 +13,7 @@ interface VegetableTypeCard {
   id: number;
   name: string;
   price: number;
-  image: string;
+  image?: string;
   category: string;
   amount: number;
   increaseAmount: React.MouseEventHandler<HTMLButtonElement>;
@@ -32,8 +33,14 @@ export const VegetableCard = ({
 }: VegetableTypeCard) => {
   return (
     <Card id={String(id)} shadow="sm" padding="md" radius="lg" withBorder>
-      <Card.Section>
-        <Image src={image} width={276} height={276} alt={name} />
+      <Card.Section className={styles["vegetable-img-wrapper"]}>
+        <Image
+          src={image}
+          width={276}
+          height={276}
+          alt={image ? name : ""}
+          className={styles["vegetable-img"]}
+        />
       </Card.Section>
 
       <Group
