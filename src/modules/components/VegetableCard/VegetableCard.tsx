@@ -5,7 +5,6 @@ import { transformNameOfVegetable } from "../../utils";
 import IconDecrease from "../../../assets/Rectangle 70.png";
 import IconIncrease from "../../../assets/Union.png";
 import IconCart from "../../../assets/cart.png";
-import LoaderImg from "../../../assets/img-loader.png";
 
 import styles from "./VegetableCard.module.css";
 

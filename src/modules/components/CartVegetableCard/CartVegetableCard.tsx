@@ -15,7 +15,7 @@ interface CartVegetableCardProps {
     id: number;
     name: string;
     price: number;
-    image: string;
+    image?: string;
     category?: string;
     amount: number;
   }[];
@@ -23,7 +23,7 @@ interface CartVegetableCardProps {
     id: number;
     name: string;
     price: number;
-    image: string;
+    image?: string;
     amount: number;
   };
   setCart: (
@@ -31,7 +31,7 @@ interface CartVegetableCardProps {
       id: number;
       name: string;
       price: number;
-      image: string;
+      image?: string;
       category?: string;
       amount: number;
     }[]
