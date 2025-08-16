@@ -2,7 +2,6 @@ import { screen } from "@testing-library/react";
 import { expect, it, describe, vi, beforeEach } from "vitest";
 import ky from "ky";
 
-import { App } from "../index";
 import { VegetablesList } from "../../pages";
 import { render } from "../../modules/test-utils/render";
 
@@ -18,7 +17,7 @@ interface VegetableType {
   amount: number;
 }
 
-describe("App component", async function () {
+describe("VegetablesList component", async function () {
   const mochSetVegetables = vi.fn();
   const mochSetCart = vi.fn();
 
@@ -26,15 +25,7 @@ describe("App component", async function () {
     vi.clearAllMocks();
   });
 
-  it("should render component App", () => {
-    render(<App></App>);
-    expect(screen.getByText(/shop/i));
-    expect(screen.getByText(/Cart/i));
-    expect(screen.getByText(/Catalog/i));
-    expect(screen.getByText(/Loading vegetables...Please Wait!/i));
-  });
-
-  it("should render component App with list of vegetables", async () => {
+  it("should render component VegetablesList", async () => {
     const getVegetables = async () => {
       const newVegetables: VegetableType[] = await ky.get(url).json();
       const newVegetablesWithAmount = newVegetables.map((itm) => {
@@ -56,9 +47,6 @@ describe("App component", async function () {
       />
     );
 
-    render(<App></App>);
-    expect(screen.getByText(/shop/i));
-    expect(screen.getByText(/Catalog/i));
     expect(screen.getAllByText("Add to cart"));
     expect(screen.getAllByAltText("btn-cart-icon"));
   });
