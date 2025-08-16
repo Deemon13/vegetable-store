@@ -13,7 +13,7 @@ interface CartPopUpProps {
     id: number;
     name: string;
     price: number;
-    image: string;
+    image?: string;
     category?: string;
     amount: number;
   }[];
@@ -22,7 +22,7 @@ interface CartPopUpProps {
       id: number;
       name: string;
       price: number;
-      image: string;
+      image?: string;
       category?: string;
       amount: number;
     }[]
